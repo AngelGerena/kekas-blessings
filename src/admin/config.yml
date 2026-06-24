@@ -1,0 +1,217 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded photos are stored in the project, and how they are referenced on the site
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: https://kekasblessing.com
+display_url: https://kekasblessing.com
+logo_url: /assets/img/logo-wordmark.svg
+
+# Friendly editor labels
+publish_mode: simple
+
+collections:
+  # ------------------------------------------------------------------
+  # PAGES & SETTINGS
+  # ------------------------------------------------------------------
+  - name: "settings"
+    label: "Pages & Settings"
+    description: "Your logo, colors, contact info, chat, and main page text."
+    files:
+      - name: "branding"
+        label: "Branding, Contact & Chat"
+        file: "src/_data/site.json"
+        description: "Logo, colors, phone, WhatsApp, live chat, links, and online payments."
+        fields:
+          - { label: "Business Name", name: "name", widget: "string", hint: "Full name used in the page title and footer." }
+          - { label: "Short Name", name: "shortName", widget: "string", hint: "Used in the header logo text." }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Use Text Logo (recommended)", name: "useTextLogo", widget: "boolean", default: true, hint: "ON shows your name in an elegant font. Turn OFF to use an uploaded logo image instead." }
+          - { label: "Logo Image", name: "logo", widget: "image", required: false, hint: "Only used when 'Use Text Logo' is OFF." }
+          - { label: "Favicon (browser tab icon)", name: "favicon", widget: "image", required: false }
+          - { label: "Brand Color", name: "brandColor", widget: "color", default: "#6FA088", enableAlpha: false, hint: "Your main green. Used for buttons and accents." }
+          - { label: "Accent Color", name: "accentColor", widget: "color", default: "#B8966A", enableAlpha: false, hint: "Secondary highlight color." }
+          - { label: "Phone (shown on site)", name: "phone", widget: "string" }
+          - { label: "Phone Link", name: "phoneLink", widget: "string", hint: "Digits only with country code, e.g. +13213747174" }
+          - { label: "Email", name: "email", widget: "string", required: false }
+          - { label: "WhatsApp Number", name: "whatsappNumber", widget: "string", hint: "Digits only with country code, e.g. 13213747174" }
+          - { label: "WhatsApp Pre-filled Message", name: "whatsappMessage", widget: "string", required: false }
+          - { label: "Show WhatsApp Button", name: "showWhatsApp", widget: "boolean", default: true }
+          - { label: "Service Area / Address", name: "address", widget: "string" }
+          - { label: "City", name: "city", widget: "string", required: false }
+          - { label: "Booking Link (Booksy)", name: "bookingUrl", widget: "string", hint: "The 'Book Now' buttons open this link." }
+          - { label: "Financing Link (Cherry)", name: "cherryUrl", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+          - { label: "TikTok URL", name: "tiktok", widget: "string", required: false }
+          - { label: "Live Chat: Tawk.to Property ID", name: "tawkPropertyId", widget: "string", required: false, hint: "From your Tawk.to dashboard. Leave blank to hide live chat." }
+          - { label: "Live Chat: Tawk.to Widget ID", name: "tawkWidgetId", widget: "string", required: false }
+          - { label: "Show Live Chat", name: "showLiveChat", widget: "boolean", default: true }
+          - { label: "Enable Online Payments (Stripe)", name: "stripeEnabled", widget: "boolean", default: false, hint: "Turn ON only after your Stripe key is added in Netlify. Shows 'Buy Online' buttons." }
+          - { label: "Payment Currency", name: "stripeCurrency", widget: "string", default: "usd", required: false }
+          - { label: "Announcement Bar Text", name: "announcement", widget: "string", required: false }
+          - { label: "Show Announcement Bar", name: "showAnnouncement", widget: "boolean", default: true }
+
+      - name: "hero"
+        label: "Home Page - Top Banner"
+        file: "src/_data/hero.json"
+        description: "The large headline and buttons at the top of the home page."
+        fields:
+          - { label: "Eyebrow (small text above headline)", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Headline Accent (italic part)", name: "headlineAccent", widget: "string" }
+          - { label: "Subheadline", name: "subheadline", widget: "text" }
+          - { label: "Primary Button Text", name: "primaryCtaText", widget: "string" }
+          - { label: "Primary Button Link", name: "primaryCtaLink", widget: "string", default: "/contact/" }
+          - { label: "Secondary Button Text", name: "secondaryCtaText", widget: "string" }
+          - { label: "Secondary Button Link", name: "secondaryCtaLink", widget: "string", default: "/services/" }
+          - { label: "Background Image", name: "backgroundImage", widget: "image", required: false }
+          - { label: "Trust Note", name: "trustNote", widget: "string", required: false }
+
+      - name: "about"
+        label: "About Section"
+        file: "src/_data/about.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Lead Sentence", name: "lead", widget: "string" }
+          - { label: "Body", name: "body", widget: "text", hint: "Use a blank line to separate paragraphs." }
+          - { label: "Photo", name: "image", widget: "image", required: false }
+          - label: "Highlights"
+            name: "highlights"
+            widget: "list"
+            fields:
+              - { label: "Stat", name: "stat", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+
+      - name: "financing"
+        label: "Financing (Cherry)"
+        file: "src/_data/financing.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Benefits", name: "benefits", widget: "list", hint: "One benefit per item." }
+          - { label: "Apply Button Text", name: "ctaText", widget: "string" }
+          - { label: "Manage Account Button Text", name: "manageText", widget: "string" }
+          - { label: "Disclaimer", name: "disclaimer", widget: "text" }
+
+      - name: "policies"
+        label: "Legal Policies"
+        file: "src/_data/policies.json"
+        description: "Terms, Privacy, Refund, and Medical Disclaimer pages."
+        fields:
+          - label: "Terms & Conditions"
+            name: "terms"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Last Updated", name: "updated", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Privacy Policy"
+            name: "privacy"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Last Updated", name: "updated", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Return & Refund Policy"
+            name: "refund"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Last Updated", name: "updated", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Medical Disclaimer"
+            name: "disclaimer"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Last Updated", name: "updated", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+
+  # ------------------------------------------------------------------
+  # CATALOG & CONTENT
+  # ------------------------------------------------------------------
+  - name: "catalog"
+    label: "Services, Offers & Photos"
+    description: "Your menu, prices, promo cards, reviews, and gallery."
+    files:
+      - name: "services"
+        label: "Services & Pricing"
+        file: "src/_data/services.json"
+        description: "Add, edit, reorder, or remove drips and injections. Prices are numbers only."
+        fields:
+          - { label: "Section Title", name: "sectionTitle", widget: "string" }
+          - { label: "Section Intro", name: "sectionIntro", widget: "text" }
+          - label: "IV Vitamin Drips"
+            name: "ivDrips"
+            widget: "list"
+            summary: "{{fields.name}} - ${{fields.price}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Price (number only)", name: "price", widget: "number", value_type: "float", min: 0 }
+              - { label: "Duration", name: "duration", widget: "string", required: false }
+              - { label: "Mark as Most Loved", name: "popular", widget: "boolean", default: false }
+              - { label: "Photo", name: "image", widget: "image", required: false }
+          - label: "Vitamin Injections"
+            name: "injections"
+            widget: "list"
+            summary: "{{fields.name}} - ${{fields.price}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Price (number only)", name: "price", widget: "number", value_type: "float", min: 0 }
+              - { label: "Duration", name: "duration", widget: "string", required: false }
+              - { label: "Mark as Most Loved", name: "popular", widget: "boolean", default: false }
+              - { label: "Photo", name: "image", widget: "image", required: false }
+
+      - name: "promos"
+        label: "Promo Cards & Offers"
+        file: "src/_data/promos.json"
+        description: "Create promotional cards with a heading, text, and button."
+        fields:
+          - { label: "Section Title", name: "sectionTitle", widget: "string" }
+          - { label: "Show This Section", name: "showSection", widget: "boolean", default: true }
+          - label: "Cards"
+            name: "cards"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Badge (small label)", name: "badge", widget: "string", required: false }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body Text", name: "body", widget: "text" }
+              - { label: "Button Text", name: "buttonText", widget: "string" }
+              - { label: "Button Link", name: "buttonLink", widget: "string", hint: "An internal page like /services/ or a full https:// link." }
+              - { label: "Style", name: "style", widget: "select", options: ["sage", "outline", "dark"], default: "sage" }
+
+      - name: "testimonials"
+        label: "Client Reviews"
+        file: "src/_data/testimonials.json"
+        fields:
+          - { label: "Section Title", name: "sectionTitle", widget: "string" }
+          - { label: "Show This Section", name: "showSection", widget: "boolean", default: true }
+          - label: "Reviews"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.author}}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Location", name: "location", widget: "string", required: false }
+
+      - name: "gallery"
+        label: "Photo Gallery"
+        file: "src/_data/gallery.json"
+        fields:
+          - { label: "Section Title", name: "sectionTitle", widget: "string" }
+          - { label: "Show This Section", name: "showSection", widget: "boolean", default: true }
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Description (for accessibility)", name: "alt", widget: "string" }
