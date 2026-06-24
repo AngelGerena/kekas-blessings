@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
+  <script>document.documentElement.className += " js";</script>
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <style>
     :root {
@@ -42,18 +43,47 @@
 
   <script src="/assets/js/main.js" defer></script>
 
-  <!-- Netlify Identity: redirects the owner to the admin after accepting an invite / logging in -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Load Netlify Identity ONLY when handling an invite/recovery link. Keeps every
+       normal page load fast by not pulling the widget on public navigation. -->
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function (user) {
-        if (!user) {
-          window.netlifyIdentity.on("login", function () {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
+    (function () {
+      var h = window.location.hash || "";
+      if (/(invite_token|recovery_token|confirmation_token|email_change_token)=/.test(h)) {
+        var s = document.createElement("script");
+        s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+        s.onload = function () {
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", function (user) {
+              if (!user) {
+                window.netlifyIdentity.on("login", function () { document.location.href = "/admin/"; });
+              }
+            });
+            window.netlifyIdentity.init();
+          }
+        };
+        document.head.appendChild(s);
+      }
+    })();
+  </script>
+
+  <!-- Instant navigation: prefetch internal pages on hover / touch for a snappy feel. -->
+  <script>
+    (function () {
+      var seen = {};
+      function prefetch(href) {
+        if (!href || seen[href]) return; seen[href] = 1;
+        var l = document.createElement("link"); l.rel = "prefetch"; l.href = href;
+        document.head.appendChild(l);
+      }
+      function onHover(e) {
+        var a = e.target.closest ? e.target.closest("a") : null;
+        if (!a) return;
+        var href = a.getAttribute("href");
+        if (href && href.charAt(0) === "/" && !a.hasAttribute("target")) prefetch(href);
+      }
+      document.addEventListener("mouseover", onHover, { passive: true });
+      document.addEventListener("touchstart", onHover, { passive: true });
+    })();
   </script>
 </body>
 </html>
