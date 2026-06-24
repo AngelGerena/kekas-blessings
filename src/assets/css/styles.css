@@ -132,9 +132,10 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(252, 251, 248, 0.88);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(52, 80, 64, 0.82);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 .nav {
   display: flex;
@@ -148,18 +149,22 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
   font-family: var(--serif);
   font-size: 1.45rem;
   line-height: 1.05;
-  color: var(--ink);
+  color: #fff;
   font-weight: 500;
 }
-.brand-text span { display: block; font-size: 0.62rem; font-family: var(--sans); letter-spacing: 0.26em; text-transform: uppercase; color: var(--sage-deep); margin-top: 2px; }
+.brand-text span { display: block; font-size: 0.62rem; font-family: var(--sans); letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255, 255, 255, 0.72); margin-top: 2px; }
 
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
-.nav-links a { font-size: 0.9rem; letter-spacing: 0.04em; color: var(--ink-soft); transition: color 0.2s; }
-.nav-links a:hover { color: var(--sage-deep); }
+.nav-links a { font-size: 0.9rem; letter-spacing: 0.04em; color: rgba(255, 255, 255, 0.86); transition: color 0.2s; }
+.nav-links a:hover { color: #fff; }
 .nav-actions { display: flex; align-items: center; gap: 1rem; }
 
+/* Book Now button stands out as a light pill on the dark sage bar */
+.site-header .nav-links .btn--primary { background: #fff; color: var(--sage-deep); box-shadow: 0 6px 16px -10px rgba(0,0,0,0.5); }
+.site-header .nav-links .btn--primary:hover { background: var(--cream); color: var(--ink); }
+
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
-.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -350,10 +355,11 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
   .nav-links {
     position: absolute; top: 78px; left: 0; right: 0;
     flex-direction: column; align-items: flex-start; gap: 0;
-    background: var(--bg); border-bottom: 1px solid var(--line);
+    background: rgba(46, 71, 57, 0.98); border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     padding: 0.5rem 28px 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
   }
-  .nav-links a { display: block; width: 100%; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .nav-links a { display: block; width: 100%; padding: 0.9rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
   .site-header.open .nav-links { max-height: 460px; }
   .nav-links.show-cta { }
 }
