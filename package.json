@@ -1,0 +1,19 @@
+{
+  "name": "kekas-blessings",
+  "version": "1.0.0",
+  "description": "Keka's Blessings From Heaven - IV Vitamin Therapy & Wellness website with no-code admin portal.",
+  "scripts": {
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "markdown-it": "^14.1.0",
+    "stripe": "^14.21.0"
+  }
+}

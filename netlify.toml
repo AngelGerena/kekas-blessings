@@ -1,0 +1,25 @@
+# Netlify build + function configuration for Keka's Blessings From Heaven
+
+[build]
+  command = "npm run build"
+  publish = "_site"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Pretty URL + SPA-style fallbacks are handled by Eleventy output.
+# Decap CMS admin lives at /admin (static files in _site/admin).
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Allow the Decap CMS admin to load identity widget and git-gateway
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
