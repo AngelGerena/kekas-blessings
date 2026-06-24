@@ -1,0 +1,164 @@
+---
+layout: base.njk
+title: false
+description: "Mobile IV vitamin therapy and wellness injections in Orlando, FL. Feel whole again with all-natural drips and shots delivered with a luxury, VIP experience."
+---
+
+<!-- HERO -->
+<section class="hero" style="--hero-img: url('{{ hero.backgroundImage }}')">
+  <div class="container">
+    <div class="hero__inner reveal">
+      <span class="eyebrow">{{ hero.eyebrow }}</span>
+      <h1>{{ hero.headline }} <em>{{ hero.headlineAccent }}</em></h1>
+      <p class="hero__lead">{{ hero.subheadline }}</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="{{ hero.primaryCtaLink }}">{{ hero.primaryCtaText }}</a>
+        <a class="btn btn--ghost" href="{{ hero.secondaryCtaLink }}">{{ hero.secondaryCtaText }}</a>
+      </div>
+      <div class="hero__trust">{{ hero.trustNote }}</div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section class="section">
+  <div class="container">
+    <div class="values">
+      <div class="value-card reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.65A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+        <h3>All-Natural Wellness</h3>
+        <p>Vitamins, minerals, and antioxidants delivered directly to your bloodstream for maximum absorption and real results.</p>
+      </div>
+      <div class="value-card reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <h3>Licensed Professionals</h3>
+        <p>Every treatment is administered by experienced healthcare professionals who put your safety and comfort first.</p>
+      </div>
+      <div class="value-card reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg>
+        <h3>Luxury VIP Experience</h3>
+        <p>Personalized, concierge-level care in the comfort of your home or our wellness space across Orlando.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SPLIT -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="split">
+      <div class="split__media reveal" style="--about-img: url('{{ about.image }}')"></div>
+      <div class="split__body reveal">
+        <span class="eyebrow">Who We Are</span>
+        <h2>{{ about.lead }}</h2>
+        {{ about.body | markdown | safe }}
+        <a class="btn btn--ghost" href="/about/">Read Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ services.sectionTitle }}</span>
+      <h2>Drips &amp; injections, tailored to you</h2>
+      <p>{{ services.sectionIntro }}</p>
+    </div>
+    <div class="svc-grid">
+      {% for s in services.ivDrips %}
+      <article class="svc-card reveal">
+        {% if s.popular %}<span class="tag-popular">Most Loved</span>{% endif %}
+        <div class="svc-card__media" style="--svc-img: url('{{ s.image }}')"></div>
+        <div class="svc-card__body">
+          <div class="svc-card__head">
+            <h3>{{ s.name }}</h3>
+            <div class="svc-card__price">{{ s.price | usd }} <small>from</small></div>
+          </div>
+          <div class="svc-card__meta">IV Drip &middot; {{ s.duration }}</div>
+          <p>{{ s.description }}</p>
+          <div class="svc-card__actions">
+            <a class="btn btn--primary btn--sm" href="{{ site.bookingUrl }}" target="_blank" rel="noopener">Book</a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <div style="text-align:center; margin-top:3rem;">
+      <a class="btn btn--ghost" href="/services/">View All Services &amp; Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO CARDS -->
+{% if promos.showSection %}
+<section class="section section--sage">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ promos.sectionTitle }}</span>
+    </div>
+    <div class="promo-grid">
+      {% for c in promos.cards %}
+      <div class="promo promo--{{ c.style }} reveal">
+        {% if c.badge %}<span class="promo__badge">{{ c.badge }}</span>{% endif %}
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.body }}</p>
+        <a class="btn {% if c.style == 'sage' %}btn--light{% else %}btn--primary{% endif %}" href="{{ c.buttonLink }}">{{ c.buttonText }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- TESTIMONIALS -->
+{% if testimonials.showSection %}
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Client Love</span>
+      <h2>{{ testimonials.sectionTitle }}</h2>
+    </div>
+    <div class="quote-grid">
+      {% for t in testimonials.items %}
+      <figure class="quote reveal">
+        <span class="quote__mark">&ldquo;</span>
+        <p>{{ t.quote }}</p>
+        <figcaption class="quote__author">{{ t.author }} &middot; {{ t.location }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- GALLERY -->
+{% if gallery.showSection %}
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Gallery</span>
+      <h2>{{ gallery.sectionTitle }}</h2>
+    </div>
+    <div class="gallery-grid">
+      {% for img in gallery.images %}
+      <div class="g reveal" style="background-image:url('{{ img.src }}')" role="img" aria-label="{{ img.alt }}"></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- CTA BAND -->
+<section class="section cta-band">
+  <div class="container reveal">
+    <span class="eyebrow" style="color:var(--sage-pale)">Begin Today</span>
+    <h2>Ready to feel your best?</h2>
+    <p>Book your personalized wellness session, or message us with any questions. We make it simple to start your journey.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a class="btn btn--primary" href="{{ site.bookingUrl }}" target="_blank" rel="noopener">Book an Appointment</a>
+      <a class="btn btn--light" href="/financing/">Explore Financing</a>
+    </div>
+  </div>
+</section>

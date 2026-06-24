@@ -1,0 +1,41 @@
+---
+layout: base.njk
+title: Financing
+description: "Treat now, pay later. Flexible financing for IV therapy and wellness through Cherry, with 0% APR options and no hard credit check."
+---
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Treat Now, Pay Later</span>
+    <h1>{{ financing.title }}</h1>
+    <p style="max-width:620px; margin:0 auto;">{{ financing.intro }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="finance-card reveal">
+      <ul class="finance-list">
+        {% for b in financing.benefits %}
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>{{ b }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="finance-actions">
+        <a class="btn btn--dark" href="{{ site.cherryUrl }}" target="_blank" rel="noopener">{{ financing.ctaText }}</a>
+        <a class="btn btn--ghost" href="{{ site.cherryUrl }}" target="_blank" rel="noopener">{{ financing.manageText }}</a>
+      </div>
+      <p class="finance-disclaimer">{{ financing.disclaimer }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container reveal">
+    <h2>Questions about payment plans?</h2>
+    <p>We are happy to help you find the option that fits your budget. Reach out any time.</p>
+    <a class="btn btn--primary" href="/contact/">Contact Us</a>
+  </div>
+</section>

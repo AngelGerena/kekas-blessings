@@ -1,0 +1,61 @@
+---
+layout: base.njk
+title: Contact
+description: "Get in touch with Keka's Blessings From Heaven to book IV vitamin therapy or ask a question. Serving Orlando, FL."
+---
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Start Your Journey</span>
+    <h1>Let's Connect</h1>
+    <p style="max-width:600px; margin:0 auto;">Book a session, ask a question, or say hello. We respond personally and promptly.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h2>Reach us directly</h2>
+        <p><strong>Phone</strong><br><a href="tel:{{ site.phoneLink }}">{{ site.phone }}</a></p>
+        <p><strong>WhatsApp</strong><br><a href="https://wa.me/{{ site.whatsappNumber }}" target="_blank" rel="noopener">Message us on WhatsApp</a></p>
+        <p><strong>Service Area</strong><br>{{ site.address }}</p>
+        <p style="margin-top:2rem;">
+          <a class="btn btn--primary" href="{{ site.bookingUrl }}" target="_blank" rel="noopener">Book Online</a>
+        </p>
+      </div>
+
+      <div class="reveal">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success/">
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none"><label>Do not fill: <input name="bot-field" /></label></p>
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <div class="field">
+            <label for="service">Service of Interest</label>
+            <select id="service" name="service">
+              <option>IV Vitamin Drip</option>
+              <option>Vitamin Injection</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

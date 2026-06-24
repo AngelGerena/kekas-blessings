@@ -1,0 +1,84 @@
+---
+layout: base.njk
+title: Services & Pricing
+description: "Explore our IV vitamin drips and wellness injections with transparent starting prices. Mobile service across Orlando, FL."
+---
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">{{ services.sectionTitle }}</span>
+    <h1>Services &amp; Pricing</h1>
+    <p style="max-width:640px; margin:0 auto;">{{ services.sectionIntro }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="svc-group">
+      <h2 class="svc-group__title">IV Vitamin Drips</h2>
+      <div class="svc-grid">
+        {% for s in services.ivDrips %}
+        <article class="svc-card reveal">
+          {% if s.popular %}<span class="tag-popular">Most Loved</span>{% endif %}
+          <div class="svc-card__media" style="--svc-img: url('{{ s.image }}')"></div>
+          <div class="svc-card__body">
+            <div class="svc-card__head">
+              <h3>{{ s.name }}</h3>
+              <div class="svc-card__price">{{ s.price | usd }} <small>from</small></div>
+            </div>
+            <div class="svc-card__meta">IV Drip &middot; {{ s.duration }}</div>
+            <p>{{ s.description }}</p>
+            <div class="svc-card__actions">
+              <a class="btn btn--primary btn--sm" href="{{ site.bookingUrl }}" target="_blank" rel="noopener">Book</a>
+              {% if site.stripeEnabled %}
+              <button class="btn btn--ghost btn--sm buy-btn" data-name="{{ s.name }}" data-price="{{ s.price }}">Buy Online</button>
+              {% endif %}
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="svc-group">
+      <h2 class="svc-group__title">Vitamin Injections</h2>
+      <div class="svc-grid">
+        {% for s in services.injections %}
+        <article class="svc-card reveal">
+          {% if s.popular %}<span class="tag-popular">Most Loved</span>{% endif %}
+          <div class="svc-card__media" style="--svc-img: url('{{ s.image }}')"></div>
+          <div class="svc-card__body">
+            <div class="svc-card__head">
+              <h3>{{ s.name }}</h3>
+              <div class="svc-card__price">{{ s.price | usd }} <small>from</small></div>
+            </div>
+            <div class="svc-card__meta">Injection &middot; {{ s.duration }}</div>
+            <p>{{ s.description }}</p>
+            <div class="svc-card__actions">
+              <a class="btn btn--primary btn--sm" href="{{ site.bookingUrl }}" target="_blank" rel="noopener">Book</a>
+              {% if site.stripeEnabled %}
+              <button class="btn btn--ghost btn--sm buy-btn" data-name="{{ s.name }}" data-price="{{ s.price }}">Buy Online</button>
+              {% endif %}
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--sage">
+  <div class="container" style="text-align:center; max-width:680px;">
+    <span class="eyebrow">Treat Now, Pay Later</span>
+    <h2>Wellness within reach</h2>
+    <p>Spread the cost of your treatments over time with 0% APR options through Cherry. No hard credit check required.</p>
+    <a class="btn btn--primary" href="/financing/">Explore Financing</a>
+  </div>
+</section>
+
+{% if site.stripeEnabled %}
+<script src="/assets/js/checkout.js" defer></script>
+{% endif %}

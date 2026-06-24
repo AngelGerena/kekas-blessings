@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: Privacy Policy
+permalink: /privacy/index.html
+---
+<section class="page-hero">
+  <div class="container">
+    <span class="updated">Last updated: {{ policies.privacy.updated }}</span>
+    <h1>{{ policies.privacy.title }}</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="prose reveal">{{ policies.privacy.body | markdown | safe }}</div>
+  </div>
+</section>

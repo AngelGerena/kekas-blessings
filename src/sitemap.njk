@@ -1,0 +1,20 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+pages:
+  - ""
+  - "services/"
+  - "financing/"
+  - "about/"
+  - "contact/"
+  - "terms/"
+  - "privacy/"
+  - "refund-policy/"
+  - "medical-disclaimer/"
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for p in pages %}
+  <url><loc>https://kekasblessing.com/{{ p }}</loc></url>
+{%- endfor %}
+</urlset>

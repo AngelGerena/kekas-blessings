@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: About
+description: "Meet Keka's Blessings From Heaven, your trusted source for all-natural IV vitamin therapy and wellness in Orlando, FL."
+---
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Who We Are</span>
+    <h1>{{ about.title }}</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="split__media reveal" style="--about-img: url('{{ about.image }}')"></div>
+      <div class="split__body reveal">
+        <h2>{{ about.lead }}</h2>
+        {{ about.body | markdown | safe }}
+        <div class="highlights">
+          {% for h in about.highlights %}
+          <div class="highlight">
+            <div class="stat">{{ h.stat }}</div>
+            <div class="label">{{ h.label }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container reveal">
+    <h2>Experience the difference</h2>
+    <p>Discover what whole-body wellness feels like, delivered with care that puts you first.</p>
+    <a class="btn btn--primary" href="{{ site.bookingUrl }}" target="_blank" rel="noopener">Book Your Session</a>
+  </div>
+</section>

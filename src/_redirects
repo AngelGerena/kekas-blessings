@@ -1,0 +1,6 @@
+# Netlify redirects
+# Keep old GoDaddy URLs working on the new site
+/payment-plans   /financing/        301
+/terms-and-conditions   /terms/    301
+/privacy-policy   /privacy/         301
+/shop            /services/         301

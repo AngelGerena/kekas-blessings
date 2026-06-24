@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: Return & Refund Policy
+permalink: /refund-policy/index.html
+---
+<section class="page-hero">
+  <div class="container">
+    <span class="updated">Last updated: {{ policies.refund.updated }}</span>
+    <h1>{{ policies.refund.title }}</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="prose reveal">{{ policies.refund.body | markdown | safe }}</div>
+  </div>
+</section>
