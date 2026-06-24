@@ -1,0 +1,10 @@
+{
+  "sectionTitle": "A Look Inside the Experience",
+  "showSection": true,
+  "images": [
+    { "src": "/assets/img/gallery-1.svg", "alt": "IV vitamin therapy session" },
+    { "src": "/assets/img/gallery-2.svg", "alt": "Wellness injection preparation" },
+    { "src": "/assets/img/gallery-3.svg", "alt": "Relaxing treatment setting" },
+    { "src": "/assets/img/gallery-4.svg", "alt": "Healthy, radiant client" }
+  ]
+}

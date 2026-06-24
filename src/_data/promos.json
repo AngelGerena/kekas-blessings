@@ -1,0 +1,22 @@
+{
+  "sectionTitle": "Featured Offers",
+  "showSection": true,
+  "cards": [
+    {
+      "badge": "New Client Offer",
+      "title": "$25 Off Your First Drip",
+      "body": "New to Keka's Blessings? Enjoy $25 off your first IV vitamin drip when you book your introductory wellness session.",
+      "buttonText": "Claim This Offer",
+      "buttonLink": "/contact/",
+      "style": "sage"
+    },
+    {
+      "badge": "Treat Now, Pay Later",
+      "title": "Flexible Financing With Cherry",
+      "body": "Spread the cost of your wellness journey over time with 0% APR options and no hard credit check. Approvals up to $30,000.",
+      "buttonText": "See If You Qualify",
+      "buttonLink": "/financing/",
+      "style": "outline"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "About Keka's Blessings From Heaven",
+  "lead": "Quality healthcare professionals devoted to your whole-body wellness.",
+  "body": "At Keka's Blessings From Heaven, we believe health is not merely the absence of disease, but a state of complete physical, mental, and social well-being. As experienced healthcare professionals, we bring hospital-grade care into a warm, personalized setting, helping you feel whole again.\n\nEvery client receives a luxury, VIP experience. We take the time to understand your goals, then deliver all-natural IV vitamin therapy and wellness injections that nourish your body at the cellular level. From restoring energy and immunity to supporting radiant skin, our mission is to help you live your healthiest, most confident life.",
+  "image": "/assets/img/about.svg",
+  "highlights": [
+    { "stat": "100%", "label": "Licensed healthcare professionals" },
+    { "stat": "Mobile", "label": "We come to you across Orlando" },
+    { "stat": "VIP", "label": "Personalized, luxury experience" }
+  ]
+}

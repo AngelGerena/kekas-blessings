@@ -1,0 +1,21 @@
+{
+  "sectionTitle": "What Our Clients Say",
+  "showSection": true,
+  "items": [
+    {
+      "quote": "I felt completely renewed after my drip. The experience was calming, professional, and truly felt like VIP care from start to finish.",
+      "author": "Jasmine R.",
+      "location": "Orlando, FL"
+    },
+    {
+      "quote": "The B12 shots have been a game changer for my energy. I love that she comes right to my home and takes such great care of me.",
+      "author": "Marcus T.",
+      "location": "Winter Park, FL"
+    },
+    {
+      "quote": "Knowledgeable, warm, and so attentive. My skin has never looked better since starting the Beauty & Glow drips.",
+      "author": "Danielle P.",
+      "location": "Lake Nona, FL"
+    }
+  ]
+}

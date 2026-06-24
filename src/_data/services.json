@@ -1,0 +1,72 @@
+{
+  "sectionTitle": "Our Services",
+  "sectionIntro": "Premium IV drips and vitamin injections, customized to your wellness goals. Prices are starting points and may vary based on your personalized consultation.",
+  "ivDrips": [
+    {
+      "name": "The Myers' Cocktail",
+      "description": "Our signature blend of B-complex, B12, vitamin C, magnesium, and calcium to restore energy, support immunity, and help you feel revitalized.",
+      "price": 175,
+      "duration": "45-60 min",
+      "popular": true,
+      "image": "/assets/img/service-myers.svg"
+    },
+    {
+      "name": "Immune Boost Drip",
+      "description": "High-dose vitamin C, zinc, and antioxidants formulated to strengthen your immune defenses and help you recover faster.",
+      "price": 165,
+      "duration": "45 min",
+      "popular": false,
+      "image": "/assets/img/service-immune.svg"
+    },
+    {
+      "name": "Hydration Recovery Drip",
+      "description": "Replenishing electrolytes and fluids to rehydrate, ease fatigue, and refresh you after travel, illness, or a demanding week.",
+      "price": 150,
+      "duration": "30-45 min",
+      "popular": false,
+      "image": "/assets/img/service-hydration.svg"
+    },
+    {
+      "name": "Beauty & Glow Drip",
+      "description": "Biotin, glutathione, and vitamin C to nourish skin, hair, and nails from within and support a radiant, healthy glow.",
+      "price": 195,
+      "duration": "45-60 min",
+      "popular": true,
+      "image": "/assets/img/service-beauty.svg"
+    }
+  ],
+  "injections": [
+    {
+      "name": "Vitamin B12 Injection",
+      "description": "A quick energy and metabolism boost to fight fatigue and support a healthy nervous system.",
+      "price": 40,
+      "duration": "10 min",
+      "popular": true,
+      "image": "/assets/img/service-b12.svg"
+    },
+    {
+      "name": "Lipo-Mino Slim Shot",
+      "description": "A blend of lipotropic nutrients and amino acids designed to support metabolism and complement your wellness goals.",
+      "price": 50,
+      "duration": "10 min",
+      "popular": false,
+      "image": "/assets/img/service-lipo.svg"
+    },
+    {
+      "name": "Glutathione Injection",
+      "description": "A master antioxidant that supports detoxification, skin brightening, and overall cellular wellness.",
+      "price": 55,
+      "duration": "10 min",
+      "popular": false,
+      "image": "/assets/img/service-glutathione.svg"
+    },
+    {
+      "name": "Vitamin D Injection",
+      "description": "Support immune health, mood, and bone strength with a targeted vitamin D boost.",
+      "price": 45,
+      "duration": "10 min",
+      "popular": false,
+      "image": "/assets/img/service-vitd.svg"
+    }
+  ]
+}
