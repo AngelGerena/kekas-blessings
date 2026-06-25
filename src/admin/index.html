@@ -16,6 +16,10 @@
       --fos-ink: #0b1220;
       --fos-teal: #0f8e83;
       --fos-aqua: #38d6c6;
+      --fos-grad:
+        radial-gradient(1100px 560px at 78% -10%, rgba(56, 214, 198, 0.22), transparent 60%),
+        radial-gradient(900px 520px at 4% 112%, rgba(15, 142, 131, 0.26), transparent 55%),
+        linear-gradient(145deg, #0b1220 0%, #0e3a39 60%, #0f8e83 165%);
     }
 
     /* Premium typeface across the whole studio */
@@ -27,9 +31,19 @@
     /* Decap embeds stable component labels in its hashed classes, so we
        target with [class*="Label"] selectors that survive hash changes. */
 
-    /* App background */
+    /* App background -> dark login gradient */
     [class*="AppMainContainer"], [class*="EditorContainer"], [class*="CollectionMain"] {
-      background: #eef3f6 !important;
+      background: var(--fos-grad) !important;
+      background-attachment: fixed !important;
+    }
+    /* Controls that sit on the background -> light text */
+    [class*="ViewControls"], [class*="ViewControlsSection"], [class*="CollectionControlsContainer"],
+    [class*="CollectionControlsContainer"] span, [class*="CollectionControlsContainer"] label {
+      color: rgba(255, 255, 255, 0.92) !important;
+    }
+    [class*="ViewControls"] svg, [class*="CollectionControlsContainer"] svg,
+    [class*="ViewControls"] button, [class*="CollectionControlsContainer"] button {
+      color: rgba(255, 255, 255, 0.92) !important; fill: currentColor !important;
     }
 
     /* Top app bar -> branded midnight/teal */
@@ -103,7 +117,10 @@
     }
 
     /* ===================== ENTRY EDITOR (form) ===================== */
-    [class*="EditorContainer"], [class*="ControlPaneContainer"] { background: #eef3f6 !important; }
+    [class*="EditorContainer"], [class*="ControlPaneContainer"] {
+      background: var(--fos-grad) !important;
+      background-attachment: fixed !important;
+    }
     /* Centered, focused form (preview pane is disabled in config) */
     [class*="ControlPaneContainer"] {
       max-width: 880px !important; margin: 0 auto !important; padding: 30px 10px 90px !important;
