@@ -144,25 +144,38 @@
       box-shadow: 0 0 0 3px rgba(56, 214, 198, 0.18) !important;
       outline: none !important;
     }
-    /* Repeatable list items (cards) */
+    /* Repeatable list items (cards) -> clean white cards */
     [class*="SortableListItem"], [class*="listControlItem"] {
-      border-radius: 12px !important;
-      border: 1px solid #e4e9ed !important;
-      background: #f7fafb !important;
-      margin-bottom: 10px !important;
+      border-radius: 14px !important;
+      border: 1px solid #dfeae7 !important;
+      background: #ffffff !important;
+      margin-bottom: 12px !important;
       overflow: hidden !important;
+      box-shadow: 0 10px 26px -20px rgba(11, 18, 32, 0.5) !important;
     }
-    [class*="StyledListItemTopBar"] { background: #eaf3f1 !important; border: 0 !important; }
-    [class*="NestedObjectLabel"] { color: var(--fos-ink) !important; font-weight: 500 !important; }
-    /* Toggles -> teal when on (replaces Decap blue) */
-    [class*="ToggleBackground"] { background: #cdd6dc !important; }
-    input:checked ~ [class*="ToggleBackground"],
-    [class*="Toggle"][aria-pressed="true"] [class*="ToggleBackground"],
-    [class*="Toggle"][class*="active"] [class*="ToggleBackground"] { background: var(--fos-teal) !important; }
-    /* Add / action buttons in lists */
-    [class*="ListControl"] button, [class*="ControlPaneContainer"] [class*="-blue-"] {
-      color: var(--fos-teal) !important;
+    /* Each item's header bar -> teal gradient with white controls (kills the grey) */
+    [class*="StyledListItemTopBar"] {
+      background: linear-gradient(90deg, var(--fos-teal), var(--fos-aqua)) !important;
+      border: 0 !important; min-height: 38px !important;
     }
+    [class*="StyledListItemTopBar"] svg,
+    [class*="StyledListItemTopBar"] button,
+    [class*="StyledListItemTopBar"] * { color: #ffffff !important; fill: #ffffff !important; }
+    /* Card title row -> white, bold ink (was hard grey) */
+    [class*="NestedObjectLabel"] {
+      background: #ffffff !important;
+      color: var(--fos-ink) !important;
+      font-weight: 600 !important; font-size: 0.98rem !important;
+    }
+    /* Collapsible object header ("2 cards") -> soft teal tint */
+    [class*="ObjectWidgetTopBar"] { background: #eaf3f1 !important; border-radius: 10px !important; }
+    /* Add / action buttons -> teal pill */
+    [class*="AddButton"], [class*="ListControl"] button[class*="AddButton"] {
+      background: linear-gradient(135deg, var(--fos-aqua), var(--fos-teal)) !important;
+      color: #04201d !important; border: 0 !important; border-radius: 100px !important;
+      box-shadow: 0 8px 18px -10px rgba(15, 142, 131, 0.6) !important;
+    }
+    [class*="ControlPaneContainer"] [class*="-blue-"] { color: var(--fos-teal) !important; }
 
     /* ---------- Branded LOGIN screen (classes added by script below) ---------- */
     html.finesse-login, html.finesse-login body { height: 100%; }
@@ -323,7 +336,22 @@
 
       function start() {
         if (!document.body) { return setTimeout(start, 60); }
-        function tick() { brand(); decorateCards(); }
+        function colorToggles() {
+          try {
+            document.querySelectorAll('[class*="ToggleContainer"]').forEach(function (t) {
+              var bg = t.querySelector('[class*="ToggleBackground"]');
+              var h = t.querySelector('[class*="ToggleHandle"]');
+              if (!bg) return;
+              var on = false;
+              if (h) {
+                var tr = getComputedStyle(h).transform;
+                if (tr && tr !== "none") { var m = tr.match(/matrix\(([^)]+)\)/); if (m) { var p = m[1].split(","); if (parseFloat(p[4]) > 2) on = true; } }
+              }
+              bg.style.setProperty("background", on ? "linear-gradient(90deg,#0f8e83,#38d6c6)" : "#cdd6dc", "important");
+            });
+          } catch (e) {}
+        }
+        function tick() { brand(); decorateCards(); colorToggles(); }
         try {
           var obs = new MutationObserver(tick);
           obs.observe(document.body, { childList: true, subtree: true });
