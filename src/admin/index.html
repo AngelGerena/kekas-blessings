@@ -167,8 +167,13 @@
       color: var(--fos-ink) !important;
       font-weight: 600 !important; font-size: 0.98rem !important;
     }
-    /* Collapsible object header ("2 cards") -> soft teal tint */
-    [class*="ObjectWidgetTopBar"] { background: #eaf3f1 !important; border-radius: 10px !important; }
+    /* Collapsible list/object header ("2 cards") -> soft teal (was hard grey) */
+    [class*="ObjectWidgetTopBar"], [class*="TopBarContainer"] {
+      background: linear-gradient(90deg, #e3f4f0, #eef7f5) !important;
+      border: 1px solid #d4e9e4 !important;
+      border-radius: 10px !important;
+    }
+    [class*="TopBarContainer"] > span, [class*="TopBarContainer"] button[class*="Expand"] svg { color: var(--fos-ink) !important; }
     /* Add / action buttons -> teal pill */
     [class*="AddButton"], [class*="ListControl"] button[class*="AddButton"] {
       background: linear-gradient(135deg, var(--fos-aqua), var(--fos-teal)) !important;
