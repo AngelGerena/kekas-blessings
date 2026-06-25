@@ -311,8 +311,37 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
 }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 3px var(--sage-pale); }
 
-/* ---------- Policy / prose pages ---------- */
-.page-hero { background: var(--sage-pale); padding: clamp(60px, 9vw, 110px) 0 clamp(40px, 6vw, 70px); text-align: center; }
+/* ---------- Page banners (subpage headers) ---------- */
+.page-hero {
+  position: relative;
+  padding: clamp(96px, 14vw, 168px) 0 clamp(64px, 9vw, 96px);
+  text-align: center;
+  color: #fff;
+  background: var(--ink);
+  overflow: hidden;
+}
+.page-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--page-img, url('https://images.unsplash.com/photo-1633219664572-473fd988a44f?fm=jpg&q=80&w=1600&h=560&fit=crop'));
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  z-index: 0;
+}
+.page-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11,18,32,0.55) 0%, rgba(11,18,32,0.82) 100%),
+    linear-gradient(115deg, rgba(15,142,131,0.55) 0%, rgba(11,18,32,0.15) 60%);
+  z-index: 1;
+}
+.page-hero .container { position: relative; z-index: 2; }
+.page-hero h1 { color: #fff; }
+.page-hero .eyebrow { color: var(--gold); }
+.page-hero p { color: rgba(255,255,255,0.88); }
+.page-hero .updated { color: rgba(255,255,255,0.75); }
 .prose { max-width: 760px; margin: 0 auto; }
 .prose h2 { font-size: 1.7rem; margin-top: 2.2rem; }
 .prose p, .prose li { color: var(--ink-soft); }
