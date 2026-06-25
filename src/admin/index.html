@@ -213,15 +213,62 @@
         } catch (e) {}
       }
 
+      // Give each settings card a relevant photo banner (matches the live site sections)
+      var IMGBASE = "https://images.unsplash.com/photo-";
+      var CROP = "?fm=jpg&q=75&w=640&h=320&fit=crop";
+      var CARD_IMG = {
+        "top banner": "1613791716702-9fc08004a5be",
+        "home page": "1613791716702-9fc08004a5be",
+        "about": "1610289982320-3891f7c9fd6d",
+        "financing": "1630168258841-ea0ae143ee1f",
+        "legal": "1633219664572-473fd988a44f",
+        "polic": "1633219664572-473fd988a44f",
+        "branding": "1680669115320-e874dd7dbe08",
+        "contact": "1680669115320-e874dd7dbe08",
+        "service": "1650174378624-c9ab2c99e512",
+        "pricing": "1650174378624-c9ab2c99e512",
+        "promo": "1733055709829-09d18fe1ae28",
+        "offer": "1733055709829-09d18fe1ae28",
+        "review": "1704292224744-139b484352d3",
+        "gallery": "1729439535483-7f38204ead4c",
+        "photo": "1729439535483-7f38204ead4c"
+      };
+      function pickImg(t) {
+        for (var k in CARD_IMG) { if (t.indexOf(k) >= 0) return IMGBASE + CARD_IMG[k] + CROP; }
+        return IMGBASE + "1613791716702-9fc08004a5be" + CROP;
+      }
+      function decorateCards() {
+        try {
+          var heads = document.querySelectorAll('[class*="CardHeading"]');
+          for (var i = 0; i < heads.length; i++) {
+            var h = heads[i];
+            var card = h.closest("a") || h.parentNode;
+            if (!card || card.getAttribute("data-fos")) continue;
+            card.setAttribute("data-fos", "1");
+            card.style.position = "relative";
+            card.style.overflow = "hidden";
+            card.style.paddingTop = "172px";
+            var im = document.createElement("div");
+            im.style.cssText =
+              "position:absolute;top:0;left:0;right:0;height:154px;" +
+              "background-color:#0e3b3a;background-size:cover;background-position:center;" +
+              'background-image:linear-gradient(180deg,rgba(11,18,32,0.04),rgba(11,18,32,0.22)),url("' +
+              pickImg((h.textContent || "").toLowerCase()) + '");';
+            card.insertBefore(im, card.firstChild);
+          }
+        } catch (e) {}
+      }
+
       function start() {
         if (!document.body) { return setTimeout(start, 60); }
+        function tick() { brand(); decorateCards(); }
         try {
-          var obs = new MutationObserver(function () { brand(); });
+          var obs = new MutationObserver(tick);
           obs.observe(document.body, { childList: true, subtree: true });
         } catch (e) {}
-        brand();
-        // a few retries for the async Decap mount
-        var n = 0, t = setInterval(function () { brand(); if (++n > 20) clearInterval(t); }, 300);
+        tick();
+        // keep re-checking for cards that mount after login / collection switches
+        setInterval(tick, 700);
       }
       start();
     })();
