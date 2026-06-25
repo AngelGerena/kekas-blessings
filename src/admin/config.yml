@@ -20,6 +20,8 @@ collections:
   - name: "settings"
     label: "Pages & Settings"
     description: "Your logo, colors, contact info, chat, and main page text."
+    editor:
+      preview: false
     files:
       - name: "branding"
         label: "Branding, Contact & Chat"
@@ -137,6 +139,8 @@ collections:
   - name: "catalog"
     label: "Services, Offers & Photos"
     description: "Your menu, prices, promo cards, reviews, and gallery."
+    editor:
+      preview: false
     files:
       - name: "services"
         label: "Services & Pricing"
