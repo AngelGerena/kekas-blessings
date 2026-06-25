@@ -175,8 +175,8 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
 .lang-toggle[data-lang="es"] button[data-l="es"] { background: var(--sage); color: #fff; }
 
 /* Hide Google Translate's own banner/widget — we drive it from our toggle */
-.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon, #goog-gt-tt, .goog-te-balloon-frame, .goog-tooltip { display: none !important; }
-body { top: 0 !important; }
+iframe.skiptranslate, .goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd, .goog-te-gadget-icon, #goog-gt-tt, .goog-te-balloon-frame, .goog-tooltip { display: none !important; visibility: hidden !important; }
+body { top: 0 !important; position: static !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
 #google_translate_element { position: absolute !important; left: -9999px !important; top: 0 !important; height: 0 !important; overflow: hidden !important; }
 
