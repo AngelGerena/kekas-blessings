@@ -4,13 +4,148 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Content Manager | Keka's Blessings From Heaven</title>
+  <title>Finesse OS · Keka's Blessings From Heaven</title>
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== Finesse OS — premium admin theme ===== */
+    :root {
+      --fos-ink: #0b1220;
+      --fos-teal: #0f8e83;
+      --fos-aqua: #38d6c6;
+    }
+
+    /* Premium typeface across the whole studio */
+    body, input, textarea, select, button, [class*="css-"] {
+      font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    }
+
+    /* ---------- Branded LOGIN screen (classes added by script below) ---------- */
+    html.finesse-login, html.finesse-login body { height: 100%; }
+    html.finesse-login body {
+      background:
+        radial-gradient(1100px 560px at 72% -12%, rgba(56, 214, 198, 0.28), transparent 60%),
+        radial-gradient(900px 500px at 8% 110%, rgba(15, 142, 131, 0.30), transparent 55%),
+        linear-gradient(140deg, #0b1220 0%, #0e3a39 58%, #0f8e83 150%) !important;
+    }
+
+    #finesse-brand { text-align: center; margin: 0 0 22px; }
+    #finesse-brand .finesse-logo {
+      height: 92px; width: auto; display: block; margin: 0 auto 16px;
+      filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.45));
+    }
+    #finesse-brand .finesse-os {
+      font-family: "Cormorant Garamond", serif; font-weight: 600;
+      font-size: 2.35rem; line-height: 1; color: #fff; letter-spacing: 0.5px;
+    }
+    #finesse-brand .finesse-os b { color: var(--fos-aqua); font-weight: 600; }
+    #finesse-brand .finesse-sub {
+      margin-top: 8px; color: rgba(255, 255, 255, 0.72);
+      font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase;
+    }
+
+    .finesse-card {
+      background: rgba(255, 255, 255, 0.07) !important;
+      -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.16) !important;
+      border-radius: 24px !important;
+      box-shadow: 0 40px 90px -34px rgba(0, 0, 0, 0.75) !important;
+      padding: 46px 42px !important;
+      max-width: 430px !important; width: 92% !important;
+    }
+    .finesse-card img:not(.finesse-logo) { display: none !important; } /* hide Decap's default logo, we show our own */
+
+    .finesse-btn {
+      background: linear-gradient(135deg, var(--fos-aqua), var(--fos-teal)) !important;
+      color: #04201d !important; border: 0 !important;
+      border-radius: 100px !important; padding: 0.95rem 1.7rem !important;
+      font-weight: 600 !important; letter-spacing: 0.02em !important;
+      box-shadow: 0 16px 34px -14px rgba(56, 214, 198, 0.65) !important;
+      transition: transform 0.2s ease !important;
+    }
+    .finesse-btn:hover { transform: translateY(-1px) !important; }
+
+    /* ---------- Persistent Finesse OS badge ---------- */
+    #finesse-badge {
+      position: fixed; left: 14px; bottom: 12px; z-index: 9999;
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--fos-teal); background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #d8e6e2; padding: 5px 11px; border-radius: 100px;
+      box-shadow: 0 8px 22px -10px rgba(0, 0, 0, 0.3); pointer-events: none;
+    }
+    #finesse-badge::before {
+      content: ""; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--fos-aqua); box-shadow: 0 0 0 3px rgba(56, 214, 198, 0.25);
+    }
+    html.finesse-login #finesse-badge { background: rgba(255, 255, 255, 0.14); color: #fff; border-color: rgba(255,255,255,0.25); }
+  </style>
 </head>
 <body>
-  <!-- Netlify Identity: handles secure email/password login for the owner -->
+  <!-- Netlify Identity: secure email/password login -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- Decap CMS: the no-code editing interface -->
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.3.3/dist/decap-cms.js"></script>
+
+  <!-- Finesse OS branding layer -->
+  <script>
+    (function () {
+      var LOGO = "https://dl.dropboxusercontent.com/scl/fi/1d2tihe6utpfhp7ihyif8/Untitled-design.png?rlkey=8lc9p3oa2k40ftlwfks9bnjzy&raw=1";
+
+      function ensureBadge() {
+        try {
+          if (document.body && !document.getElementById("finesse-badge")) {
+            var b = document.createElement("div");
+            b.id = "finesse-badge";
+            b.appendChild(document.createTextNode("Finesse OS"));
+            document.body.appendChild(b);
+          }
+        } catch (e) {}
+      }
+
+      function brand() {
+        try {
+          ensureBadge();
+          var nodes = Array.prototype.slice.call(document.querySelectorAll("button, a"));
+          var loginBtn = null;
+          for (var i = 0; i < nodes.length; i++) {
+            if (/netlify identity/i.test(nodes[i].textContent || "")) { loginBtn = nodes[i]; break; }
+          }
+          if (loginBtn) {
+            document.documentElement.classList.add("finesse-login");
+            loginBtn.classList.add("finesse-btn");
+            var card = loginBtn.closest("div") || loginBtn.parentNode;
+            if (card) card.classList.add("finesse-card");
+            if (card && !document.getElementById("finesse-brand")) {
+              var d = document.createElement("div");
+              d.id = "finesse-brand";
+              d.innerHTML =
+                '<img class="finesse-logo" src="' + LOGO + '" alt="Keka\'s Blessings" />' +
+                '<div class="finesse-os">Finesse <b>OS</b></div>' +
+                '<div class="finesse-sub">Content Studio &middot; Keka\'s Blessings</div>';
+              card.insertBefore(d, card.firstChild);
+            }
+          } else {
+            document.documentElement.classList.remove("finesse-login");
+          }
+        } catch (e) {}
+      }
+
+      function start() {
+        if (!document.body) { return setTimeout(start, 60); }
+        try {
+          var obs = new MutationObserver(function () { brand(); });
+          obs.observe(document.body, { childList: true, subtree: true });
+        } catch (e) {}
+        brand();
+        // a few retries for the async Decap mount
+        var n = 0, t = setInterval(function () { brand(); if (++n > 20) clearInterval(t); }, 300);
+      }
+      start();
+    })();
+  </script>
 </body>
 </html>
