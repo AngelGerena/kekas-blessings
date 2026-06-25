@@ -18,8 +18,10 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Allow the Decap CMS admin to load identity widget and git-gateway
+# Allow the Decap CMS admin to load identity widget and git-gateway,
+# and never cache the admin HTML/config so theme updates always show immediately.
 [[headers]]
   for = "/admin/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
+    Cache-Control = "no-store, max-age=0, must-revalidate"
