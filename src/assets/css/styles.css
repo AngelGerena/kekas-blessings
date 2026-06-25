@@ -167,6 +167,19 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
 
+/* Language (EN/ES) toggle */
+.lang-toggle { display: inline-flex; align-items: center; border: 1px solid rgba(255, 255, 255, 0.28); border-radius: 100px; overflow: hidden; }
+.lang-toggle button { background: transparent; border: 0; color: rgba(255, 255, 255, 0.72); font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; padding: 5px 11px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
+.lang-toggle button:hover { color: #fff; }
+.lang-toggle[data-lang="en"] button[data-l="en"],
+.lang-toggle[data-lang="es"] button[data-l="es"] { background: var(--sage); color: #fff; }
+
+/* Hide Google Translate's own banner/widget — we drive it from our toggle */
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon, #goog-gt-tt, .goog-te-balloon-frame, .goog-tooltip { display: none !important; }
+body { top: 0 !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
+#google_translate_element { position: absolute !important; left: -9999px !important; top: 0 !important; height: 0 !important; overflow: hidden !important; }
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
