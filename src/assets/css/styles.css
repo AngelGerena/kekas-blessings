@@ -144,7 +144,8 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
   height: 78px;
 }
 .brand { display: flex; align-items: center; gap: 0.6rem; }
-.brand img { height: 46px; width: auto; }
+.brand img { height: 52px; width: auto; }
+.footer-logo { height: 96px; width: auto; display: block; margin-bottom: 0.4rem; }
 .brand-text {
   font-family: var(--serif);
   font-size: 1.45rem;
