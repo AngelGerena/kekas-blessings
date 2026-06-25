@@ -6,9 +6,9 @@ backend:
 media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
 
-site_url: https://kekasblessing.com
-display_url: https://kekasblessing.com
-logo_url: /assets/img/logo-wordmark.svg
+site_url: https://kekas-blessings.netlify.app
+display_url: https://kekas-blessings.netlify.app
+logo_url: https://dl.dropboxusercontent.com/scl/fi/1d2tihe6utpfhp7ihyif8/Untitled-design.png?rlkey=8lc9p3oa2k40ftlwfks9bnjzy&raw=1
 
 # Friendly editor labels
 publish_mode: simple
