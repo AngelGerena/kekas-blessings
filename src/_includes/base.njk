@@ -29,7 +29,7 @@
 </head>
 <body>
   {% if site.showAnnouncement and site.announcement %}
-  <div class="announce">{{ site.announcement }}</div>
+  <div class="announce">{{ site.announcement | replace("Cherry", '<a href="' + site.cherryUrl + '" target="_blank" rel="noopener">Cherry</a>') | safe }}</div>
   {% endif %}
 
   {% include "partials/header.njk" %}
