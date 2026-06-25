@@ -2,7 +2,11 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <span class="brand-text">{{ site.shortName }}<span>From Heaven</span></span>
+        {% if site.useTextLogo %}
+          <span class="brand-text">{{ site.shortName }}<span>From Heaven</span></span>
+        {% else %}
+          <img class="footer-logo" src="{{ site.logo }}" alt="{{ site.name }}" />
+        {% endif %}
         <p style="margin-top:1.2rem; max-width:340px; color:#b6b3aa;">{{ site.tagline }}.</p>
         <p style="color:#b6b3aa;">{{ site.address }}</p>
       </div>
