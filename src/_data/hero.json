@@ -7,6 +7,6 @@
   "primaryCtaLink": "/contact/",
   "secondaryCtaText": "View Services & Pricing",
   "secondaryCtaLink": "/services/",
-  "backgroundImage": "/assets/img/hero.svg",
+  "backgroundImage": "https://images.unsplash.com/photo-1613791716702-9fc08004a5be?fm=jpg&q=80&w=1300&h=1500&fit=crop",
   "trustNote": "Administered by licensed healthcare professionals"
 }

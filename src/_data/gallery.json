@@ -2,9 +2,9 @@
   "sectionTitle": "A Look Inside the Experience",
   "showSection": true,
   "images": [
-    { "src": "/assets/img/gallery-1.svg", "alt": "IV vitamin therapy session" },
-    { "src": "/assets/img/gallery-2.svg", "alt": "Wellness injection preparation" },
-    { "src": "/assets/img/gallery-3.svg", "alt": "Relaxing treatment setting" },
-    { "src": "/assets/img/gallery-4.svg", "alt": "Healthy, radiant client" }
+    { "src": "https://images.unsplash.com/photo-1610289982320-3891f7c9fd6d?fm=jpg&q=80&w=700&h=700&fit=crop", "alt": "Relaxing spa wellness experience" },
+    { "src": "https://images.unsplash.com/photo-1633219664572-473fd988a44f?fm=jpg&q=80&w=700&h=700&fit=crop", "alt": "Comfortable IV vitamin therapy session" },
+    { "src": "https://images.unsplash.com/photo-1729439535483-7f38204ead4c?fm=jpg&q=80&w=700&h=700&fit=crop", "alt": "Attentive professional IV care" },
+    { "src": "https://images.unsplash.com/photo-1704292224744-139b484352d3?fm=jpg&q=80&w=700&h=700&fit=crop", "alt": "Serene, restored wellness" }
   ]
 }
