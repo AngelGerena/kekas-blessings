@@ -369,3 +369,31 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
   .site-header.open .nav-links { max-height: 460px; }
   .nav-links.show-cta { }
 }
+
+/* ---------- Motion & parallax ---------- */
+.site-header { transition: background 0.3s ease, box-shadow 0.3s ease; }
+.site-header.scrolled { background: rgba(11, 18, 32, 0.94); box-shadow: 0 10px 34px -18px rgba(0, 0, 0, 0.65); }
+
+.hero::after { transform: translateY(var(--py, 0px)); will-change: transform; }
+
+.svc-card__media { transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.svc-card:hover .svc-card__media { transform: scale(1.06); }
+
+.split__media, .gallery-grid .g { will-change: background-position; }
+
+/* Staggered reveal within grids for a smooth cascade */
+.js .values .reveal:nth-child(2),
+.js .svc-grid .reveal:nth-child(2),
+.js .quote-grid .reveal:nth-child(2),
+.js .gallery-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+.js .values .reveal:nth-child(3),
+.js .svc-grid .reveal:nth-child(3),
+.js .quote-grid .reveal:nth-child(3),
+.js .gallery-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+.js .svc-grid .reveal:nth-child(4),
+.js .gallery-grid .reveal:nth-child(4) { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after { transform: none !important; }
+  .svc-card:hover .svc-card__media { transform: none; }
+}
