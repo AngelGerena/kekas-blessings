@@ -316,6 +316,8 @@ body { top: 0 !important; position: static !important; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .contact-info p { font-size: 1.05rem; }
 .contact-info a { color: var(--sage-deep); }
+.contact-info a.btn--primary { color: #fff; }
+.contact-info a.btn--dark { color: #fff; }
 .field { margin-bottom: 1.2rem; }
 .field label { display: block; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
 .field input, .field select, .field textarea {
